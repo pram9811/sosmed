@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Calculator</title>
+    <style>
+        :root {
+            --primary: #1e88e5;
+            --primary-light: #6ab7ff;
+            --primary-dark: #005cb2;
+            --secondary: #4fc3f7;
+            --success: #4caf50;
+            --text: #ffffff;
+            --bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.2);
+            --border-radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        h1 {
+            margin-bottom: 15px;
+            font-size: 3rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .calculator {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .platform-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+        }
+
+        .platform-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .platform-title {
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .platform-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+        }
+
+        .tiktok-icon {
+            background: linear-gradient(45deg, #ff0050, #ff4081);
+        }
+
+        .instagram-icon {
+            background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+        }
+
+        .whatsapp-icon {
+            background: linear-gradient(45deg, #25d366, #128c7e);
+        }
+
+        .service {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(248, 250, 252, 0.8);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .service:hover {
+            background: rgba(248, 250, 252, 1);
+            border-color: var(--primary-light);
+        }
+
+        .service-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .service-name {
+            font-size: 1.1rem;
+        }
+
+        .service-price {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1rem;
+            background: rgba(30, 136, 229, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(30, 136, 229, 0.2);
+        }
+
+        input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        input:focus {
+            border-color: var(--primary-light);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.15);
+            transform: scale(1.02);
+        }
+
+        input:hover {
+            border-color: var(--primary-light);
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, var(--success), #66bb6a);
+            color: white;
+            border-radius: 12px;
+            font-weight: 700;
+            text-align: center;
+            display: none;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        .total-section {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .total-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+
+        .total-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .total-amount {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin: 25px 0;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .currency {
+            font-size: 2rem;
+            vertical-align: top;
+            opacity: 0.9;
+        }
+
+        .note {
+            font-size: 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .calculator {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .platform-card {
+                padding: 25px 20px;
+            }
+            
+            .total-amount {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .platform-card {
+                padding: 20px 15px;
+            }
+            
+            .service {
+                padding: 15px;
+            }
+        }
+
+        /* Smooth animations */
+        .platform-card, .service, input, .result {
+            will-change: transform;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Social Media Calculator</h1>
+            <p class="subtitle">Calculate the cost of your social media growth services</p>
+        </header>
+
+        <div class="calculator">
+            <!-- TikTok Card -->
+            <div class="platform-card">
+                <div class="platform-title">
+                    <div class="platform-icon tiktok-icon">🎵</div>
+                    <span>TikTok Services</span>
+                </div>
+                
+                <div class="service">
+                    <div class="service-label">
+                        <span class="service-name">Followers</span>
+                        <span class="service-price">Rp 25.000/1000</span>
+                    </div>
+                    <input type="number" id="tt-followers" placeholder="Enter amount" min="0" oninput="calculate()">
+                    <div class="result" id="tt-followers-result"></div>
+                </div>
+                
+                <div class="service">
+                    <div class="service-label">
+                        <span class="service-name">Likes</span>
+                        <span class="service-price">Rp 5.000/1000</span>
+                    </div>
+                    <input type="number" id="tt-likes" placeholder="Enter amount" min="0" oninput="calculate()">
+                    <div class="result" id="tt-likes-result"></div>
+                </div>
+                
+                <div class="service">
+                    <div class="service-label">
+                        <span class="service-name">Views</span>
+                        <span class="service-price">Rp 100/1000</span>
+                    </div>
+                    <input type="number" id="tt-views" placeholder="Enter amount" min="0" oninput="calculate()">
+                    <div class="result" id="tt-views-result"></div>
+                </div>
+            </div>
+            
+            <!-- Instagram Card -->
+            <div class="platform-card">
+                <div class="platform-title">
+                    <div class="platform-icon instagram-icon">📷</div>
+                    <span>Instagram Services</span>
+                </div>
+                
+                <div class="service">
+                    <div class="service-label">
+                        <span class="service-name">Followers</span>
+                        <span class="service-price">Rp 28.000/1000</span>
+                    </div>
+                    <input type="number" id="ig-followers" placeholder="Enter amount" min="0" oninput="calculate()">
+                    <div class="result" id="ig-followers-result"></div>
+                </div>
+                
+                <div class="service">
+                    <div class="service-label">
+                        <span class="service-name">Likes</span>
+                        <span class="service-price">Rp 857/1000</span>
+                    </div>
+                    <input type="number" id="ig-likes" placeholder="Enter amount" min="0" oninput="calculate()">
+                    <div class="result" id="ig-likes-result"></div>
+                </div>
+                
+                <div class="service">
+                    <div class="service-label">
+                        <span class="service-name">Views</span>
+                        <span class="service-price">Rp 70/1000</span>
+                    </div>
+                    <input type="number" id="ig-views" placeholder="Enter amount" min="0" oninput="calculate()">
+                    <div class="result" id="ig-views-result"></div>
+                </div>
+            </div>
+
+            <!-- WhatsApp Card -->
+            <div class="platform-card">
+                <div class="platform-title">
+                    <div class="platform-icon whatsapp-icon">💬</div>
+                    <span>WhatsApp Services</span>
+                </div>
+                
+                <div class="service">
+                    <div class="service-label">
+                        <span class="service-name">Followers</span>
+                        <span class="service-price">Rp 33.000/1000</span>
+                    </div>
+                    <input type="number" id="wa-followers" placeholder="Enter amount" min="0" oninput="calculate()">
+                    <div class="result" id="wa-followers-result"></div>
+                </div>
+            </div>
+            
+            <!-- Total Section -->
+            <div class="total-section">
+                <div class="total-title">Total Investment</div>
+                <div class="total-amount">
+                    <span class="currency">Rp</span> 
+                    <span id="total-amount">0</span>
+                </div>
+                <div class="note">All prices are in Indonesian Rupiah (IDR)</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            // TikTok calculations
+            const ttFollowers = parseInt(document.getElementById('tt-followers').value) || 0;
+            const ttLikes = parseInt(document.getElementById('tt-likes').value) || 0;
+            const ttViews = parseInt(document.getElementById('tt-views').value) || 0;
+            
+            const ttFollowersCost = (ttFollowers / 1000) * 25000;
+            const ttLikesCost = (ttLikes / 1000) * 5000;
+            const ttViewsCost = (ttViews / 1000) * 100;
+            
+            // Instagram calculations
+            const igFollowers = parseInt(document.getElementById('ig-followers').value) || 0;
+            const igLikes = parseInt(document.getElementById('ig-likes').value) || 0;
+            const igViews = parseInt(document.getElementById('ig-views').value) || 0;
+            
+            const igFollowersCost = (igFollowers / 1000) * 28000;
+            const igLikesCost = (igLikes / 1000) * 857;
+            const igViewsCost = (igViews / 1000) * 70;
+            
+            // WhatsApp calculations
+            const waFollowers = parseInt(document.getElementById('wa-followers').value) || 0;
+            const waFollowersCost = (waFollowers / 1000) * 33000;
+            
+            // Update individual results
+            updateResult('tt-followers-result', ttFollowersCost);
+            updateResult('tt-likes-result', ttLikesCost);
+            updateResult('tt-views-result', ttViewsCost);
+            updateResult('ig-followers-result', igFollowersCost);
+            updateResult('ig-likes-result', igLikesCost);
+            updateResult('ig-views-result', igViewsCost);
+            updateResult('wa-followers-result', waFollowersCost);
+            
+            // Calculate total
+            const total = ttFollowersCost + ttLikesCost + ttViewsCost + 
+                          igFollowersCost + igLikesCost + igViewsCost + 
+                          waFollowersCost;
+            
+            // Format total with thousand separators
+            document.getElementById('total-amount').textContent = formatNumber(total);
+        }
+        
+        function updateResult(elementId, value) {
+            const element = document.getElementById(elementId);
+            if (value > 0) {
+                element.textContent = 'Total: Rp ' + formatNumber(value);
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
+            }
+        }
+        
+        function formatNumber(num) {
+            return Math.round(num).toLocaleString('id-ID');
+        }
+        
+        // Initialize calculator
+        document.addEventListener('DOMContentLoaded', function() {
+            calculate();
+        });
+
+        // Add some interactive feedback
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
