@@ -5,339 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Media Calculator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <style>
-        :root {
-            --primary: #6366f1;
-            --primary-light: #8b5cf6;
-            --primary-dark: #4f46e5;
-            --secondary: #06b6d4;
-            --success: #10b981;
-            --text: #1f2937;
-            --text-light: #6b7280;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --border: #e5e7eb;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --border-radius: 12px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 30px;
-        }
-
-        .main-content {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-
-        .sidebar {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            height: fit-content;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #f1f5f9;
-        }
-
-        .header-left {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border-radius: 8px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            background: #f8fafc;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--text);
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .form-select, .form-input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        .form-select:focus, .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-        }
-
-        .form-select:hover, .form-input:hover {
-            border-color: var(--primary-light);
-        }
-
-        .service-item {
-            display: none;
-            padding: 20px;
-            background: #f8fafc;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-        }
-
-        .service-item.active {
-            display: block;
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .service-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .service-name {
-            font-weight: 600;
-            color: var(--text);
-            font-size: 15px;
-        }
-
-        .service-price {
-            background: var(--primary);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .service-result {
-            margin-top: 10px;
-            padding: 12px;
-            background: var(--success);
-            color: white;
-            border-radius: 6px;
-            font-weight: 600;
-            text-align: center;
-            display: none;
-        }
-
-        .total-section {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            padding: 25px;
-            border-radius: var(--border-radius);
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .total-label {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .total-amount {
-            font-size: 32px;
-            font-weight: 900;
-            margin: 15px 0;
-        }
-
-        .btn-order {
-            width: 100%;
-            background: var(--primary);
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .btn-order:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .sidebar-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text);
-        }
-
-        .info-list {
-            list-style: none;
-            color: var(--text-light);
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .info-list li {
-            margin-bottom: 8px;
-            padding-left: 16px;
-            position: relative;
-        }
-
-        .info-list li:before {
-            content: "•";
-            color: var(--primary);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .platform-icon {
-            width: 20px;
-            height: 20px;
-            border-radius: 4px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            margin-right: 8px;
-        }
-
-        .tiktok { background: linear-gradient(45deg, #ffffff, #ffffff); }
-        .instagram { background: linear-gradient(45deg, #ffffff, #ffffff, #ffffff); }
-        .youtube { background: linear-gradient(45deg, #ffffff, #ffffff); }
-        .whatsapp { background: linear-gradient(45deg, #ffffff, #ffffff); }
-        .discord { background: linear-gradient(45deg, #ffffff, #ffffff); }
-
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .main-content, .sidebar {
-                padding: 20px;
-            }
-            
-            .header {
-                flex-direction: column;
-                gap: 15px;
-                align-items: stretch;
-            }
-            
-            .header-left {
-                justify-content: center;
-            }
-        }
-
-/* Tombol WhatsApp melayang */
-.whatsapp-button {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background-color: #25d366;
-    color: white;
-    font-size: 28px;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    transition: transform 0.2s ease;
-}
-
-.whatsapp-button:hover {
-    transform: scale(1.1);
-    background-color: #1ebe5d;
-}
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -353,10 +21,10 @@
                 </div>
             </div>
 
-            <form>
+            <form id="order-form">
                 <div class="form-group">
                     <label class="form-label">KATEGORI</label>
-                    <select class="form-select" id="category-select" onchange="showServices()">
+                    <select class="form-select" id="category-select">
                         <option value="">🔥 - Layanan GRATIS - PROMO ON-OFF</option>
                         <option value="tiktok">🎵 TikTok Services</option>
                         <option value="instagram">📷 Instagram Services</option>
@@ -369,6 +37,7 @@
                 <div class="form-group">
                     <label class="form-label">LAYANAN</label>
                     <div id="services-container">
+                        <!-- TikTok Services -->
                         <div class="service-item" data-platform="tiktok">
                             <div class="service-header">
                                 <span class="service-name">
@@ -377,8 +46,8 @@
                                 </span>
                                 <span class="service-price">Rp 30.200/1000</span>
                             </div>
-                            <input type="number" class="form-input" placeholder="Masukkan jumlah followers" min="0" oninput="calculate()">
-                            <div class="service-result" id="tt-followers-result"></div>
+                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="30200">
+                            <div class="service-result"></div>
                         </div>
 
                         <div class="service-item" data-platform="tiktok">
@@ -389,8 +58,8 @@
                                 </span>
                                 <span class="service-price">Rp 5.700/1000</span>
                             </div>
-                            <input type="number" class="form-input" placeholder="Masukkan jumlah likes" min="0" oninput="calculate()">
-                            <div class="service-result" id="tt-likes-result"></div>
+                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="5700">
+                            <div class="service-result"></div>
                         </div>
 
                         <div class="service-item" data-platform="tiktok">
@@ -401,10 +70,11 @@
                                 </span>
                                 <span class="service-price">Rp 520/1000</span>
                             </div>
-                            <input type="number" class="form-input" placeholder="Masukkan jumlah views" min="0" oninput="calculate()">
-                            <div class="service-result" id="tt-views-result"></div>
+                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="520">
+                            <div class="service-result"></div>
                         </div>
 
+                        <!-- Instagram Services -->
                         <div class="service-item" data-platform="instagram">
                             <div class="service-header">
                                 <span class="service-name">
@@ -413,8 +83,8 @@
                                 </span>
                                 <span class="service-price">Rp 29.700/1000</span>
                             </div>
-                            <input type="number" class="form-input" placeholder="Masukkan jumlah followers" min="0" oninput="calculate()">
-                            <div class="service-result" id="ig-followers-result"></div>
+                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="29700">
+                            <div class="service-result"></div>
                         </div>
 
                         <div class="service-item" data-platform="instagram">
@@ -425,22 +95,23 @@
                                 </span>
                                 <span class="service-price">Rp 980/1000</span>
                             </div>
-                            <input type="number" class="form-input" placeholder="Masukkan jumlah likes" min="0" oninput="calculate()">
-                            <div class="service-result" id="ig-likes-result"></div>
+                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="980">
+                            <div class="service-result"></div>
                         </div>
 
                         <div class="service-item" data-platform="instagram">
                             <div class="service-header">
                                 <span class="service-name">
-                                      <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
+                                    <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
                                     Instagram Views
                                 </span>
                                 <span class="service-price">Rp 510/1000</span>
                             </div>
-                            <input type="number" class="form-input" placeholder="Masukkan jumlah views" min="0" oninput="calculate()">
-                            <div class="service-result" id="ig-views-result"></div>
+                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="510">
+                            <div class="service-result"></div>
                         </div>
 
+                        <!-- YouTube Services -->
                         <div class="service-item" data-platform="youtube">
                             <div class="service-header">
                                 <span class="service-name">
@@ -449,64 +120,90 @@
                                 </span>
                                 <span class="service-price">Rp 12.200/1000</span>
                             </div>
-                            <input type="number" class="form-input" placeholder="Masukkan jumlah likes" min="0" oninput="calculate()">
-                            <div class="service-result" id="yt-likes-result"></div>
+                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="12200">
+                            <div class="service-result"></div>
                         </div>
 
                         <div class="service-item" data-platform="youtube">
                             <div class="service-header">
                                 <span class="service-name">
-                                    <img class="platform-icon youtube" src="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png" alt="Youtube Icon" width="24" height="24">                                    YouTube Subscribers
+                                    <img class="platform-icon youtube" src="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png" alt="Youtube Icon" width="24" height="24">
+                                    YouTube Subscribers
                                 </span>
                                 <span class="service-price">Rp 160.200/1000</span>
                             </div>
-                            <input type="number" class="form-input" placeholder="Masukkan jumlah subscribers" min="0" oninput="calculate()">
-                            <div class="service-result" id="yt-subscribers-result"></div>
+                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah subscribers" min="0" data-rate="160200">
+                            <div class="service-result"></div>
                         </div>
 
                         <div class="service-item" data-platform="youtube">
                             <div class="service-header">
                                 <span class="service-name">
-                                      <img class="platform-icon youtube" src="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png" alt="Youtube Icon" width="24" height="24">
+                                    <img class="platform-icon youtube" src="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png" alt="Youtube Icon" width="24" height="24">
                                     YouTube Views
                                 </span>
                                 <span class="service-price">Rp 17.200/1000</span>
                             </div>
-                            <input type="number" class="form-input" placeholder="Masukkan jumlah views" min="0" oninput="calculate()">
-                            <div class="service-result" id="yt-views-result"></div>
+                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="17200">
+                            <div class="service-result"></div>
                         </div>
 
+                        <!-- WhatsApp Services -->
                         <div class="service-item" data-platform="whatsapp">
                             <div class="service-header">
                                 <span class="service-name">
-                                  <img class="platform-icon whatsapp" src="https://bcd-pedia.id/assets/img/category/667660d362207.png" alt="Whatsapp Icon" width="24" height="24">
+                                    <img class="platform-icon whatsapp" src="https://bcd-pedia.id/assets/img/category/667660d362207.png" alt="Whatsapp Icon" width="24" height="24">
                                     WhatsApp Followers
                                 </span>
                                 <span class="service-price">Rp 50.200/1000</span>
                             </div>
-                            <input type="number" class="form-input" placeholder="Masukkan jumlah followers" min="0" oninput="calculate()">
-                            <div class="service-result" id="wa-followers-result"></div>
+                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="50200">
+                            <div class="service-result"></div>
                         </div>
 
+                        <!-- Discord Services -->
                         <div class="service-item" data-platform="discord">
                             <div class="service-header">
                                 <span class="service-name">
-                                <img class="platform-icon discord" src="https://bcd-pedia.id/assets/img/category/666da9541ea3e.png" alt="Discord Icon" width="24" height="24">
+                                    <img class="platform-icon discord" src="https://bcd-pedia.id/assets/img/category/666da9541ea3e.png" alt="Discord Icon" width="24" height="24">
                                     Discord Members
                                 </span>
                                 <span class="service-price">Rp 75.200/1000</span>
                             </div>
-                            <input type="number" class="form-input" placeholder="Masukkan jumlah members" min="0" oninput="calculate()">
-                            <div class="service-result" id="discord-members-result"></div>
+                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah members" min="0" data-rate="75200">
+                            <div class="service-result"></div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Link/Username Section -->
+                <div class="form-group" id="link-section" style="display: none;">
+                    <label class="form-label">LINK/USERNAME TARGET</label>
+                    <div id="links-container">
+                        <div class="link-input-group">
+                            <input type="text" class="form-input link-input" placeholder="Masukkan link atau username target">
+                            <button type="button" class="btn-remove-link" onclick="removeLinkField(this)" style="display: none;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary" id="add-link-btn" onclick="addLinkField()">
+                        <i class="fas fa-plus"></i> Tambah Link/Username
+                    </button>
                 </div>
 
                 <div class="total-section">
                     <div class="total-label">Total Harga</div>
                     <div class="total-amount">Rp <span id="total-amount">0</span></div>
+                    <div style="display: flex; gap: 10px; margin-top: 20px;">
+                        <button type="button" class="btn-order" id="order-btn" onclick="createOrder()" style="flex: 1;">
+                            <i class="fas fa-paper-plane"></i> Kirim Pesanan
+                        </button>
+                        <button type="button" class="btn-order" onclick="resetForm()" style="flex: 0 0 auto; background: rgba(239, 68, 68, 0.2); border-color: rgba(239, 68, 68, 0.3);">
+                            <i class="fas fa-refresh"></i>
+                        </button>
+                    </div>
                 </div>
-
             </form>
         </div>
 
@@ -516,8 +213,9 @@
             <h4 style="margin-bottom: 10px; color: var(--text); font-size: 14px; font-weight: 600;">Langkah-langkah membuat pesanan baru:</h4>
             <ul class="info-list">
                 <li>Pilih salah satu Kategori.</li>
-                <li>Masukkan Target pesanan sesuai ketentuan yang diberikan layanan tersebut.</li>
-                <li>Masukkan Jumlah Pesanan yang diinginkan.</li>
+                <li>Masukkan jumlah pesanan yang diinginkan.</li>
+                <li>Masukkan link atau username target.</li>
+                <li>Klik tombol "Buat Pesanan" untuk mengirim ke WhatsApp.</li>
             </ul>
 
             <h4 style="margin: 20px 0 10px; color: var(--text); font-size: 14px; font-weight: 600;">Ketentuan membuat pesanan baru:</h4>
@@ -525,97 +223,15 @@
                 <li>Silahkan membuat pesanan sesuai langkah-langkah diatas.</li>
                 <li>Jika ingin membuat pesanan dengan Target yang sama dengan pesanan yang sudah pernah dipesan sebelumnya, mohon menunggu sampai pesanan sebelumnya selesai diproses.</li>
                 <li>Jangan memasukkan orderan yang sama jika orderan sebelumnya belum selesai.</li>
-                <li>Sebelum order Pastikan target/akun nya tidak di private, Jika di private maka diluar tanggung jawab kami jika pesanan nya hargus </li>
+                <li>Sebelum order Pastikan target/akun nya tidak di private, Jika di private maka diluar tanggung jawab kami jika pesanan nya hargus.</li>
             </ul>
         </div>
     </div>
-        <a href="https://wa.me/628567325691" class="whatsapp-button" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <!-- Tambahkan sebelum penutup </body> -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        function showServices() {
-            const selectedCategory = document.getElementById('category-select').value;
-            const allServices = document.querySelectorAll('.service-item');
-            
-            // Hide all services
-            allServices.forEach(service => {
-                service.classList.remove('active');
-            });
-            
-            // Show services for selected category
-            if (selectedCategory) {
-                const categoryServices = document.querySelectorAll(`[data-platform="${selectedCategory}"]`);
-                categoryServices.forEach(service => {
-                    service.classList.add('active');
-                });
-            }
-            
-            // Recalculate total
-            calculate();
-        }
+    <a href="https://wa.me/628567325691" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-        function calculate() {
-            let total = 0;
-            const activeServices = document.querySelectorAll('.service-item.active');
-            
-            activeServices.forEach((service, index) => {
-                const input = service.querySelector('input[type="number"]');
-                const resultDiv = service.querySelector('.service-result');
-                const platform = service.dataset.platform;
-                const value = parseInt(input.value) || 0;
-                
-                let cost = 0;
-                let rate = 0;
-                
-                // Get the service type from the service name
-                const serviceName = service.querySelector('.service-name').textContent.toLowerCase();
-                
-                if (platform === 'tiktok') {
-                    if (serviceName.includes('followers')) rate = 30.200;
-                    else if (serviceName.includes('likes')) rate = 5700;
-                    else if (serviceName.includes('views')) rate = 520;
-                } else if (platform === 'instagram') {
-                    if (serviceName.includes('followers')) rate = 29700;
-                    else if (serviceName.includes('likes')) rate = 980;
-                    else if (serviceName.includes('views')) rate = 510;
-                } else if (platform === 'youtube') {
-                    if (serviceName.includes('likes')) rate = 12200;
-                    else if (serviceName.includes('subscribers')) rate = 160200;
-                    else if (serviceName.includes('views')) rate = 17200;
-                } else if (platform === 'whatsapp') {
-                    if (serviceName.includes('followers')) rate = 50200;
-                } else if (platform === 'discord') {
-                    if (serviceName.includes('members')) rate = 75200;
-                }
-                
-                cost = (value / 1000) * rate;
-                total += cost;
-                
-                // Update individual result
-                if (cost > 0) {
-                    resultDiv.textContent = `Total: Rp ${formatNumber(cost)}`;
-                    resultDiv.style.display = 'block';
-                } else {
-                    resultDiv.style.display = 'none';
-                }
-            });
-            
-            // Update total
-            document.getElementById('total-amount').textContent = formatNumber(total);
-        }
-        
-        function formatNumber(num) {
-            return Math.round(num).toLocaleString('id-ID');
-        }
-        
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            calculate();
-        });
-    </script>
-    
+    <script src="script.js"></script>
 </body>
 </html>
