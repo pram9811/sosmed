@@ -194,23 +194,28 @@ function createOrder() {
     const totalCost = selectedServices.reduce((sum, service) => sum + service.cost, 0);
     
     // Create WhatsApp message
-    let message = `🛒 *PESANAN BARU*\n\n`;
-    message += `📂 *Kategori:* ${categoryText}\n\n`;
-    
-    message += `📋 *Detail Pesanan:*\n`;
-    selectedServices.forEach((service, index) => {
-        message += `${index + 1}. ${service.name}\n`;
-        message += `   Jumlah: ${formatNumber(service.quantity)}\n`;
-        message += `   Harga: Rp ${formatNumber(service.cost)}\n\n`;
-    });
-    
-    message += `🎯 *Target/Link:*\n`;
-    links.forEach((link, index) => {
-        message += `${index + 1}. ${link}\n`;
-    });
-    
-    message += `\n💰 *Total Harga: Rp ${formatNumber(totalCost)}*\n\n`;
-    message += `Mohon proses pesanan ini. Terima kasih! 🙏`;
+let message = `📌 *PESANAN BARU* 📌\n\n`;
+
+// Category
+message += `📁 *Kategori:* ${categoryText}\n\n`;
+
+// Order Details
+message += `📝 *Detail Pesanan:*\n`;
+selectedServices.forEach((service, index) => {
+    message += `▫️ *${index + 1}. ${service.name}*\n`;
+    message += `   ✏️ Jumlah: ${formatNumber(service.quantity)}\n`;
+    message += `   💵 Harga: Rp ${formatNumber(service.cost)}\n\n`;
+});
+
+// Target/Links
+message += `🎯 *Target/Link:*\n`;
+links.forEach((link, index) => {
+    message += `🔹 ${index + 1}. ${link}\n`;
+});
+
+// Total Price
+message += `\n💳 *Total Harga:* Rp ${formatNumber(totalCost)}\n\n`;
+message += `⏳ Mohon segera diproses ya. Terima kasih! 🙏`;
     
     // Encode message for WhatsApp URL
     const encodedMessage = encodeURIComponent(message);
