@@ -228,59 +228,6 @@ body {
     transform: translateY(-1px);
 }
 
-.total-section {
-    background: linear-gradient(135deg, var(--primary), var(--primary-light));
-    color: white;
-    padding: 25px;
-    border-radius: var(--border-radius);
-    text-align: center;
-    margin-top: 30px;
-}
-
-.total-label {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.total-amount {
-    font-size: 32px;
-    font-weight: 900;
-    margin: 15px 0;
-}
-
-.btn-order {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    padding: 15px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    backdrop-filter: blur(10px);
-}
-
-.btn-order:hover {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.5);
-    transform: translateY(-2px);
-}
-
-.btn-order:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-}
-
 .sidebar-title {
     font-size: 18px;
     font-weight: 700;
