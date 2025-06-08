@@ -375,7 +375,7 @@
                                     <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
                                     TikTok Followers
                                 </span>
-                                <span class="service-price">Rp 28.000/1000</span>
+                                <span class="service-price">Rp 30.200/1000</span>
                             </div>
                             <input type="number" class="form-input" placeholder="Masukkan jumlah followers" min="0" oninput="calculate()">
                             <div class="service-result" id="tt-followers-result"></div>
@@ -387,7 +387,7 @@
                                     <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
                                     TikTok Likes
                                 </span>
-                                <span class="service-price">Rp 5.200/1000</span>
+                                <span class="service-price">Rp 5.700/1000</span>
                             </div>
                             <input type="number" class="form-input" placeholder="Masukkan jumlah likes" min="0" oninput="calculate()">
                             <div class="service-result" id="tt-likes-result"></div>
@@ -399,7 +399,7 @@
                                     <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
                                     TikTok Views
                                 </span>
-                                <span class="service-price">Rp 120/1000</span>
+                                <span class="service-price">Rp 520/1000</span>
                             </div>
                             <input type="number" class="form-input" placeholder="Masukkan jumlah views" min="0" oninput="calculate()">
                             <div class="service-result" id="tt-views-result"></div>
@@ -411,7 +411,7 @@
                                     <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
                                     Instagram Followers
                                 </span>
-                                <span class="service-price">Rp 28.200/1000</span>
+                                <span class="service-price">Rp 29.700/1000</span>
                             </div>
                             <input type="number" class="form-input" placeholder="Masukkan jumlah followers" min="0" oninput="calculate()">
                             <div class="service-result" id="ig-followers-result"></div>
@@ -423,7 +423,7 @@
                                     <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
                                     Instagram Likes
                                 </span>
-                                <span class="service-price">Rp 920/1000</span>
+                                <span class="service-price">Rp 980/1000</span>
                             </div>
                             <input type="number" class="form-input" placeholder="Masukkan jumlah likes" min="0" oninput="calculate()">
                             <div class="service-result" id="ig-likes-result"></div>
@@ -435,7 +435,7 @@
                                       <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
                                     Instagram Views
                                 </span>
-                                <span class="service-price">Rp 110/1000</span>
+                                <span class="service-price">Rp 510/1000</span>
                             </div>
                             <input type="number" class="form-input" placeholder="Masukkan jumlah views" min="0" oninput="calculate()">
                             <div class="service-result" id="ig-views-result"></div>
@@ -447,7 +447,7 @@
                                     <img class="platform-icon youtube" src="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png" alt="Youtube Icon" width="24" height="24">
                                     YouTube Likes
                                 </span>
-                                <span class="service-price">Rp 10.200/1000</span>
+                                <span class="service-price">Rp 12.200/1000</span>
                             </div>
                             <input type="number" class="form-input" placeholder="Masukkan jumlah likes" min="0" oninput="calculate()">
                             <div class="service-result" id="yt-likes-result"></div>
@@ -574,15 +574,15 @@
                 const serviceName = service.querySelector('.service-name').textContent.toLowerCase();
                 
                 if (platform === 'tiktok') {
-                    if (serviceName.includes('followers')) rate = 28000;
-                    else if (serviceName.includes('likes')) rate = 5200;
-                    else if (serviceName.includes('views')) rate = 120;
+                    if (serviceName.includes('followers')) rate = 30.200;
+                    else if (serviceName.includes('likes')) rate = 5700;
+                    else if (serviceName.includes('views')) rate = 520;
                 } else if (platform === 'instagram') {
-                    if (serviceName.includes('followers')) rate = 28200;
-                    else if (serviceName.includes('likes')) rate = 920;
-                    else if (serviceName.includes('views')) rate = 120;
+                    if (serviceName.includes('followers')) rate = 29700;
+                    else if (serviceName.includes('likes')) rate = 980;
+                    else if (serviceName.includes('views')) rate = 510;
                 } else if (platform === 'youtube') {
-                    if (serviceName.includes('likes')) rate = 10200;
+                    if (serviceName.includes('likes')) rate = 12200;
                     else if (serviceName.includes('subscribers')) rate = 160200;
                     else if (serviceName.includes('views')) rate = 17200;
                 } else if (platform === 'whatsapp') {
