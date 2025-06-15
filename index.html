@@ -3,234 +3,432 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media Calculator</title>
+    <title>LNZ PEDIA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <div class="main-content">
-            <div class="header">
-                <div class="header-left">
-                    <button class="btn btn-primary">
-                        🛒 Umum
-                    </button>
-                </div>
+    <div class="main-content">
+        <div class="header">
+            <div class="header-left">
+                <button class="btn btn-primary" onclick="navigateTo('beranda')">
+                    Beranda
+                </button>
+                <button class="btn btn-primary" onclick="navigateTo('payment')">
+                    Payment
+                </button>
             </div>
+        </div>
 
             <form id="order-form">
                 <div class="form-group">
                     <label class="form-label">KATEGORI</label>
-                    <select class="form-select" id="category-select">
-                        <option value="">🔥 - Layanan GRATIS - PROMO ON-OFF</option>
-                        <option value="tiktok">🎵 TikTok Services</option>
-                        <option value="instagram">📷 Instagram Services</option>
-                        <option value="youtube">📺 YouTube Services</option>
-                        <option value="whatsapp">💬 WhatsApp Services</option>
-                        <option value="discord">🎮 Discord Services</option>
-                    </select>
+<select class="form-select" id="category-select">
+    <option value="">🔥 - Layanan GRATIS - PROMO ON-OFF</option>
+    <option value="discord" data-icon="https://bcd-pedia.id/assets/img/category/666da9541ea3e.png">Discord Services</option>
+    <option value="facebook" data-icon="https://bcd-pedia.id/assets/img/category/facebook-icon.png">Facebook Services</option>
+    <option value="instagram" data-icon="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png">Instagram Services</option>
+    <option value="shopee" data-icon="https://bcd-pedia.id/assets/img/category/shopee-icon.png">Shopee Services</option>
+    <option value="snackvideo" data-icon="https://bcd-pedia.id/assets/img/category/snackvideo-icon.png">Snack Video Services</option>
+    <option value="telegram" data-icon="https://bcd-pedia.id/assets/img/category/telegram-icon.png">Telegram Services</option>
+    <option value="threads" data-icon="https://bcd-pedia.id/assets/img/category/threads-icon.png">Threads Services</option>
+    <option value="tiktok" data-icon="https://bcd-pedia.id/assets/img/category/66c96159a655c.png">TikTok Services</option>
+    <option value="tokopedia" data-icon="https://bcd-pedia.id/assets/img/category/tokopedia-icon.png">Tokopedia Services</option>
+    <option value="whatsapp" data-icon="https://bcd-pedia.id/assets/img/category/667660d362207.png">WhatsApp Services</option>
+    <option value="youtube" data-icon="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png">YouTube Services</option>
+</select>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">LAYANAN</label>
                     <div id="services-container">
-                        <!-- TikTok Services -->
-                        <div class="service-item" data-platform="tiktok">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
-                                    TikTok Followers
-                                </span>
-                                <span class="service-price">Rp 30.200/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="30200">
-                            <div class="service-result"></div>
-                        </div>
-
-                        <div class="service-item" data-platform="tiktok">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
-                                    TikTok Likes
-                                </span>
-                                <span class="service-price">Rp 5.300/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="5300">
-                            <div class="service-result"></div>
-                        </div>
-
-                        <div class="service-item" data-platform="tiktok">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
-                                    TikTok Views
-                                </span>
-                                <span class="service-price">Rp 120/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="120">
-                            <div class="service-result"></div>
-                        </div>
-                        
-                         <div class="service-item" data-platform="tiktok">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
-                                    TikTok Saves
-                                </span>
-                                <span class="service-price">Rp 5400/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="5400">
-                            <div class="service-result"></div>
-                        </div>
-
-                         <div class="service-item" data-platform="tiktok">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
-                                    TikTok Shares
-                                </span>
-                                <span class="service-price">Rp 560/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="560">
-                            <div class="service-result"></div>
-                        </div>
-
-                        <div class="service-item" data-platform="tiktok">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
-                                    TikTok Comments
-                                </span>
-                                <span class="service-price">Rp 31000/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="31000">
-                            <div class="service-result"></div>
-                        </div>
-                        
-                        <!-- Instagram Services -->
-                        <div class="service-item" data-platform="instagram">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
-                                    Instagram Followers
-                                </span>
-                                <span class="service-price">Rp 29.700/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="29700">
-                            <div class="service-result"></div>
-                        </div>
-
-                        <div class="service-item" data-platform="instagram">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
-                                    Instagram Likes
-                                </span>
-                                <span class="service-price">Rp 980/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="980">
-                            <div class="service-result"></div>
-                        </div>
-
-                        <div class="service-item" data-platform="instagram">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
-                                    Instagram Views
-                                </span>
-                                <span class="service-price">Rp 510/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="510">
-                            <div class="service-result"></div>
-                        </div>
-
-                        <div class="service-item" data-platform="instagram">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
-                                    Instagram Saves
-                                </span>
-                                <span class="service-price">Rp 400/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="400">
-                            <div class="service-result"></div>
-                        </div>
-
-                         <div class="service-item" data-platform="instagram">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
-                                    Instagram Shares
-                                </span>
-                                <span class="service-price">Rp 7300/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="7300">
-                            <div class="service-result"></div>
-                        </div>
-                        
-                        <!-- YouTube Services -->
-                        <div class="service-item" data-platform="youtube">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon youtube" src="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png" alt="Youtube Icon" width="24" height="24">
-                                    YouTube Likes
-                                </span>
-                                <span class="service-price">Rp 12.200/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="12200">
-                            <div class="service-result"></div>
-                        </div>
-
-                        <div class="service-item" data-platform="youtube">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon youtube" src="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png" alt="Youtube Icon" width="24" height="24">
-                                    YouTube Subscribers
-                                </span>
-                                <span class="service-price">Rp 160.200/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah subscribers" min="0" data-rate="160200">
-                            <div class="service-result"></div>
-                        </div>
-
-                        <div class="service-item" data-platform="youtube">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon youtube" src="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png" alt="Youtube Icon" width="24" height="24">
-                                    YouTube Views
-                                </span>
-                                <span class="service-price">Rp 17.200/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="17200">
-                            <div class="service-result"></div>
-                        </div>
-
-                        <!-- WhatsApp Services -->
-                        <div class="service-item" data-platform="whatsapp">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon whatsapp" src="https://bcd-pedia.id/assets/img/category/667660d362207.png" alt="Whatsapp Icon" width="24" height="24">
-                                    WhatsApp Followers
-                                </span>
-                                <span class="service-price">Rp 50.200/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="50200">
-                            <div class="service-result"></div>
-                        </div>
-
                         <!-- Discord Services -->
-                        <div class="service-item" data-platform="discord">
-                            <div class="service-header">
-                                <span class="service-name">
-                                    <img class="platform-icon discord" src="https://bcd-pedia.id/assets/img/category/666da9541ea3e.png" alt="Discord Icon" width="24" height="24">
-                                    Discord Members
-                                </span>
-                                <span class="service-price">Rp 75.200/1000</span>
-                            </div>
-                            <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah members" min="0" data-rate="75200">
-                            <div class="service-result"></div>
-                        </div>
+<div class="service-item" data-platform="discord">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon discord" src="https://bcd-pedia.id/assets/img/category/666da9541ea3e.png" alt="Discord Icon" width="24" height="24">
+            Discord Members
+        </span>
+        <span class="service-price">Rp 75.872/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah members" min="0" data-rate="75872">
+    <div class="service-result"></div>
+</div>
+
+<!-- Facebook Services -->
+<div class="service-item" data-platform="facebook">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon facebook" src="https://bcd-pedia.id/assets/img/category/66d40071f22b8.png" alt="Facebook Icon" width="24" height="24">
+            Facebook Profile Followers
+        </span>
+        <span class="service-price">Rp 17.097/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="17097">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="facebook">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon facebook" src="https://bcd-pedia.id/assets/img/category/66d40071f22b8.png" alt="Facebook Icon" width="24" height="24">
+            Facebook Post Likes
+        </span>
+        <span class="service-price">Rp 20.871/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Likes" min="0" data-rate="20871">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="facebook">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon facebook" src="https://bcd-pedia.id/assets/img/category/66d40071f22b8.png" alt="Facebook Icon" width="24" height="24">
+            Facebook Views
+        </span>
+        <span class="service-price">Rp 2.151/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Views" min="0" data-rate="2151">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="facebook">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon facebook" src="https://bcd-pedia.id/assets/img/category/66d40071f22b8.png" alt="Facebook Icon" width="24" height="24">
+            Facebook Group Members
+        </span>
+        <span class="service-price">Rp 31.643/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Members" min="0" data-rate="31643">
+    <div class="service-result"></div>
+</div>
+
+<!-- Instagram Services -->
+<div class="service-item" data-platform="instagram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
+            Instagram Followers
+        </span>
+        <span class="service-price">Rp 28.563/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="28563">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="instagram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
+            Instagram Likes
+        </span>
+        <span class="service-price">Rp 980/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="980">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="instagram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
+            Instagram Saves
+        </span>
+        <span class="service-price">Rp 450/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah saves" min="0" data-rate="450">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="instagram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
+            Instagram Shares
+        </span>
+        <span class="service-price">Rp 7.459/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah shares" min="0" data-rate="7459">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="instagram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
+            Instagram Views
+        </span>
+        <span class="service-price">Rp 230/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="230">
+    <div class="service-result"></div>
+</div>
+
+<!-- Shopee Services -->
+<div class="service-item" data-platform="shopee">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon shopee" src="https://bcd-pedia.id/assets/img/category/6776783ec0814.png" alt="Shopee Icon" width="24" height="24">
+            Shopee Followers Indonesia
+        </span>
+        <span class="service-price">Rp 5.745/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="5745">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="shopee">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon shopee" src="https://bcd-pedia.id/assets/img/category/6776783ec0814.png" alt="Shopee Icon" width="24" height="24">
+            Shopee Views
+        </span>
+        <span class="service-price">Rp 9.762/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Views" min="0" data-rate="9762">
+    <div class="service-result"></div>
+</div>
+
+
+<!-- Snack Video Services -->
+<div class="service-item" data-platform="snackvideo">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon snackvideo" src="https://bcd-pedia.id/assets/img/category/665027fe718b5.png" alt="Snack Video Icon" width="24" height="24">
+            Snack Video Followers
+        </span>
+        <span class="service-price">Rp 40.453/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="40453">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="snackvideo">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon snackvideo" src="https://bcd-pedia.id/assets/img/category/665027fe718b5.png" alt="Snack Video Icon" width="24" height="24">
+            Snack Video Likes
+        </span>
+        <span class="service-price">Rp 5.080/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Likes" min="0" data-rate="5080">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="snackvideo">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon snackvideo" src="https://bcd-pedia.id/assets/img/category/665027fe718b5.png" alt="Snack Video Icon" width="24" height="24">
+            Snack Video Views
+        </span>
+        <span class="service-price">Rp 10.050/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Views" min="0" data-rate="10050">
+    <div class="service-result"></div>
+</div>
+
+<!-- Telegram Services -->
+<div class="service-item" data-platform="telegram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon telegram" src="https://bcd-pedia.id/assets/img/category/6649dfa9c3bf7.png" alt="Telegram Icon" width="24" height="24">
+            Telegram Members (Bergaransi 30h)
+        </span>
+        <span class="service-price">Rp 9.150/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Members" min="0" data-rate="9150">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="telegram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon telegram" src="https://bcd-pedia.id/assets/img/category/6649dfa9c3bf7.png" alt="Telegram Icon" width="24" height="24">
+            Telegram Post Views
+        </span>
+        <span class="service-price">Rp 467/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Views" min="0" data-rate="467">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="telegram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon telegram" src="https://bcd-pedia.id/assets/img/category/6649dfa9c3bf7.png" alt="Telegram Icon" width="24" height="24">
+            Telegram Reactions
+        </span>
+        <span class="service-price">Rp 567/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Reactions" min="0" data-rate="567">
+    <div class="service-result"></div>
+</div>
+
+<!-- Threads Services -->
+<div class="service-item" data-platform="threads">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon threads" src="https://bcd-pedia.id/assets/img/category/6649df735b55d.png" alt="Threads Icon" width="24" height="24">
+            Threads Followers 
+        </span>
+        <span class="service-price">Rp 25.203/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="25203">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="threads">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon threads" src="https://bcd-pedia.id/assets/img/category/6649df735b55d.png" alt="Threads Icon" width="24" height="24">
+            Threads Likes 
+        </span>
+        <span class="service-price">Rp 17.498/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Likes" min="0" data-rate="17498">
+    <div class="service-result"></div>
+</div>
+
+<!-- TikTok Services -->
+<div class="service-item" data-platform="tiktok">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
+            TikTok Comments
+        </span>
+        <span class="service-price">Rp 30.360/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Comments" min="0" data-rate="30360">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="tiktok">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
+            TikTok Followers
+        </span>
+        <span class="service-price">Rp 30.270/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="30270">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="tiktok">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
+            TikTok Likes
+        </span>
+        <span class="service-price">Rp 4.420/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="4420">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="tiktok">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
+            TikTok Saves
+        </span>
+        <span class="service-price">Rp 5480/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah saves" min="0" data-rate="5480">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="tiktok">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
+            TikTok Shares
+        </span>
+        <span class="service-price">Rp 560/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah shares" min="0" data-rate="560">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="tiktok">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
+            TikTok Views
+        </span>
+        <span class="service-price">Rp 130/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="130">
+    <div class="service-result"></div>
+</div>
+
+<!-- Tokopedia Services -->
+<div class="service-item" data-platform="tokopedia">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tokopedia" src="https://bcd-pedia.id/assets/img/category/6659a55387451.jpg" alt="Tokopedia Icon" width="24" height="24">
+            Tokopedia Followers
+        </span>
+        <span class="service-price">Rp 57.691/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="57691">
+    <div class="service-result"></div>
+</div>
+
+<!-- WhatsApp Services -->
+<div class="service-item" data-platform="whatsapp">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon whatsapp" src="https://bcd-pedia.id/assets/img/category/667660d362207.png" alt="Whatsapp Icon" width="24" height="24">
+            WhatsApp Followers
+        </span>
+        <span class="service-price">Rp 50.220/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="50220">
+    <div class="service-result"></div>
+</div>
+
+<!-- YouTube Services -->
+<div class="service-item" data-platform="youtube">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon youtube" src="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png" alt="Youtube Icon" width="24" height="24">
+            YouTube Likes
+        </span>
+        <span class="service-price">Rp 12.200/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="12200">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="youtube">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon youtube" src="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png" alt="Youtube Icon" width="24" height="24">
+            YouTube Subscribers
+        </span>
+        <span class="service-price">Rp 160.200/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah subscribers" min="0" data-rate="160200">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="youtube">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon youtube" src="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png" alt="Youtube Icon" width="24" height="24">
+            YouTube Views
+        </span>
+        <span class="service-price">Rp 17.200/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="17200">
+    <div class="service-result"></div>
+</div>
                     </div>
+
                 </div>
 
                 <!-- Link/Username Section -->
@@ -380,5 +578,34 @@
     </a>
 
     <script src="script.js"></script>
+    <script>
+// Navigation function
+function navigateTo(page) {
+    if (page === 'payment') {
+        // Redirect to payment page
+        window.location.href = 'https://lanz-store.vercel.app/qris.jpg'; // or your payment page URL
+    } else if (page === 'beranda') {
+        // Redirect to home page
+        window.location.href = '#'; // or your home page URL
+    }
+}
+$(document).ready(function() {
+    $('#category-select').select2({
+        templateResult: formatOption,
+        templateSelection: formatOption
+    });
+    
+    function formatOption(option) {
+        if (!option.id) return option.text;
+        var $option = $(
+            '<span><img src="' + $(option.element).data('icon') + '" class="select-icon" /> ' + option.text + '</span>'
+        );
+        return $option;
+    }
+});
+
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </body>
 </html>
