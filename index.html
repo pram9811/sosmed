@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LNZ PEDIA</title>
+    <title>LANZ STORE | Layanan Sosmed Terbaik dengan Harga Terjangkau</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
@@ -16,12 +16,14 @@
                 <button class="btn btn-primary" onclick="navigateTo('beranda')">
                     Beranda
                 </button>
+                <button class="btn btn-primary" onclick="navigateTo('premium')">
+                    AppPrem
+                </button>
                 <button class="btn btn-primary" onclick="navigateTo('payment')">
                     Payment
                 </button>
             </div>
         </div>
-
             <form id="order-form">
                 <div class="form-group">
                     <label class="form-label">KATEGORI</label>
@@ -125,9 +127,9 @@
             <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
             Instagram Likes
         </span>
-        <span class="service-price">Rp 1154/1000</span>
+        <span class="service-price">Rp 980/1000</span>
     </div>
-    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="1154">
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="980">
     <div class="service-result"></div>
 </div>
 
@@ -137,9 +139,9 @@
             <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
             Instagram Saves
         </span>
-        <span class="service-price">Rp 576/1000</span>
+        <span class="service-price">Rp 450/1000</span>
     </div>
-    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah saves" min="0" data-rate="576">
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah saves" min="0" data-rate="450">
     <div class="service-result"></div>
 </div>
 
@@ -161,9 +163,9 @@
             <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
             Instagram Views
         </span>
-        <span class="service-price">Rp 391/1000</span>
+        <span class="service-price">Rp 230/1000</span>
     </div>
-    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="391">
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="230">
     <div class="service-result"></div>
 </div>
 
@@ -557,7 +559,7 @@
                 <li>Pilih salah satu Kategori.</li>
                 <li>Masukkan jumlah pesanan yang diinginkan.</li>
                 <li>Masukkan link atau username target.</li>
-                <li>Klik tombol "Kirim Pesanan" untuk mengirim ke WhatsApp.</li>
+                <li>Klik tombol "Buat Pesanan" untuk mengirim ke WhatsApp.</li>
             </ul>
 
             <h4 style="margin: 20px 0 10px; color: var(--text); font-size: 14px; font-weight: 600;">Ketentuan membuat pesanan baru:</h4>
@@ -583,10 +585,10 @@
 function navigateTo(page) {
     if (page === 'payment') {
         // Redirect to payment page
-        window.location.href = 'https://lanz-store.vercel.app/qris.jpg'; // or your payment page URL
-    } else if (page === 'beranda') {
+        window.location.href = 'appprem.html#payment'; // or your payment page URL
+    } else if (page === 'premium') {
         // Redirect to home page
-        window.location.href = '#'; // or your home page URL
+        window.location.href = 'appprem.html'; // or your home page URL
     }
 }
 $(document).ready(function() {
