@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LANZ STORE | Layanan Sosmed Terbaik dengan Harga Terjangkau</title>
+    <title>LANZ STORE | Layanan Sosmed & Aplikasi Premium Terbaik dengan Harga Terjangkau</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
     <div class="container">
     <div class="main-content">
         <div class="header">
@@ -16,19 +17,19 @@
                 <button class="btn btn-primary" onclick="navigateTo('beranda')">
                     Beranda
                 </button>
-                <button class="btn btn-primary" onclick="navigateTo('premium')">
-                    AppPrem
-                </button>
                 <button class="btn btn-primary" onclick="navigateTo('payment')">
                     Payment
                 </button>
             </div>
         </div>
+        
             <form id="order-form">
                 <div class="form-group">
                     <label class="form-label">KATEGORI</label>
 <select class="form-select" id="category-select">
-    <option value="">🔥 - Layanan GRATIS - PROMO ON-OFF</option>
+     <option value="">-- Pilih Layanan --</option>
+    <option value="prem">Aplikasi Premium</option>
+    <option value="gratis">🔥 - Layanan GRATIS - PROMO ON-OFF</option>
     <option value="discord" data-icon="https://bcd-pedia.id/assets/img/category/666da9541ea3e.png">Discord Services</option>
     <option value="facebook" data-icon="https://bcd-pedia.id/assets/img/category/facebook-icon.png">Facebook Services</option>
     <option value="instagram" data-icon="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png">Instagram Services</option>
@@ -46,6 +47,135 @@
                 <div class="form-group">
                     <label class="form-label">LAYANAN</label>
                     <div id="services-container">
+                                     <!-- appprem Services -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/Alight.png" alt="Discord Icon" width="24" height="24">
+            Alight Motion Pro
+        </span>
+        <span class="service-price">Rp 5.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="5000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium selama 1tahun dan garansi 3 bulan, akun private, Akun dari penjual
+    </div>
+</div>
+
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/106af21c0028ab9c08e140f3f9d917c58dfaaca3.png" alt="Discord Icon" width="24" height="24">
+           Netflix
+        </span>
+        <span class="service-price">Rp 17.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="0" data-rate="17000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun sharing 1P2U, Akun dari penjual
+    </div>
+</div>
+
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/spotify.jpg" alt="Discord Icon" width="24" height="24">
+           Spotify Premium
+        </span>
+        <span class="service-price">Rp 15.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="0" data-rate="15000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun private, Akun dari penjual
+    </div>
+</div>
+
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/primevideo-icon.png" alt="Discord Icon" width="24" height="24">
+            Prime Video
+        </span>
+        <span class="service-price">Rp 14.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="14000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun private, Akun dari penjual
+    </div>
+</div>
+
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/viu-icon.jpg" alt="Discord Icon" width="24" height="24">
+           Viu Premium
+        </span>
+        <span class="service-price">Rp 7.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="7000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong>Premium 1bulan dan garansi 30hari, akun private, Akun dari penjual
+    </div>
+</div>
+
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/Canva.webp" alt="Discord Icon" width="24" height="24">
+           Canva Pro
+        </span>
+        <span class="service-price">Rp 3.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="3000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun private, Akun dari pembeli
+    </div>
+</div>
+
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/Canva.webp" alt="Discord Icon" width="24" height="24">
+           Canva Pro
+        </span>
+        <span class="service-price">Rp 3.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="3000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1tahun dan garansi 3bulan, akun private, Akun dari pembeli
+    </div>
+</div>
+                                    <!-- Free Services -->
+<div class="service-item" data-platform="gratis">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon discord" src="https://bcd-pedia.id/assets/img/category/669658ed69960.png" alt="Discord Icon" width="24" height="24">
+            Instagram Likes
+        </span>
+        <span class="service-price">Rp 872/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="100" data-rate="872">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="gratis">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon discord" src="https://bcd-pedia.id/assets/img/category/669658ed69960.png" alt="Discord Icon" width="24" height="24">
+            Instagram Views
+        </span>
+        <span class="service-price">Rp 272/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="100" data-rate="272">
+    <div class="service-result"></div>
+</div>
                         <!-- Discord Services -->
 <div class="service-item" data-platform="discord">
     <div class="service-header">
@@ -113,11 +243,23 @@
     <div class="service-header">
         <span class="service-name">
             <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
+            Instagram Comments Negative Comments 👎🏼🤢😡
+        </span>
+        <span class="service-price">Rp 70.230/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Comments" min="0" data-rate="70230">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="instagram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
             Instagram Followers Random (Bergaransi 30h)
         </span>
-        <span class="service-price">Rp 28.830/1000</span>
+        <span class="service-price">Rp 29.830/1000</span>
     </div>
-    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="28230">
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="29830">
     <div class="service-result"></div>
 </div>
                         
@@ -139,9 +281,9 @@
             <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
             Instagram Likes Random (Bergaransi 365h)
         </span>
-        <span class="service-price">Rp 1080/1000</span>
+        <span class="service-price">Rp 1280/1000</span>
     </div>
-    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="1080">
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="1280">
     <div class="service-result"></div>
 </div>
                         
